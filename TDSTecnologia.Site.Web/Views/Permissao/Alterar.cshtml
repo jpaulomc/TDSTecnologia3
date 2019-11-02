@@ -1,0 +1,40 @@
+﻿@model TDSTecnologia.Site.Core.Entities.Permissao
+
+@{
+    ViewData["Title"] = "Atualizar permissão " + Model.Name;
+}
+
+<div>
+    <h1 class="text-center">@ViewData["Title"]</h1>
+</div>
+<hr />
+<div class="row">
+    <div class="col-12 col-lg-8 offset-lg-2">
+        <form asp-action="Alterar" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" />
+
+            <div class="campos">
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">Nome</label>
+                    <input asp-for="Name" class="form-control form-control-lg" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="campos">
+                <div class="form-group">
+                    <label asp-for="Descricao" class="control-label">Descrição</label>
+                    <input asp-for="Descricao" class="form-control form-control-lg" />
+                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                </div>
+            </div>
+            <input asp-for="ConcurrencyStamp"  type="hidden" />
+            <div class="form-group botoes">
+                <input type="submit" value="Atualizar" class="btn btn-outline-info btn-lg" /> &nbsp;
+                <a asp-action="Index" class="btn btn-link btn-lg">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>

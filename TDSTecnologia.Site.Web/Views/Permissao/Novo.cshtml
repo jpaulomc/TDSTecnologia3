@@ -1,0 +1,39 @@
+﻿@model TDSTecnologia.Site.Core.Entities.Permissao
+
+@{
+    ViewData["Title"] = "Nova permissão";
+}
+
+<div>
+    <h1 class="text-center">Cadastro de Permissões</h1>
+</div>
+<hr />
+<div class="row">
+    <div class="col-12 col-lg-8 offset-lg-2">
+        <form asp-action="Novo" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="campos">
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">Nome</label>
+                    <input asp-for="Name" class="form-control form-control-lg" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="campos">
+                <div class="form-group">
+                    <label asp-for="Descricao" class="control-label">Descrição</label>
+                    <textarea asp-for="Descricao" class="form-control form-control-lg"></textarea>
+                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                </div>
+            </div>
+            <section class="row justify-content-center mb-5">
+                <div class="form-group">
+                    <input type="submit" value="Cadastrar" class="btn btn-primary" />
+                </div>
+            </section>
+        </form>
+    </div>
+</div>
+

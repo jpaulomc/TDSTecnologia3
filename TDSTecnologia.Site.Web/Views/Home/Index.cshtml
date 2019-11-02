@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model CursoViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center text-secondary">
+    <h1>Próximos Cursos</h1>
+    <p>Veja aqui nossos proximos cursos agendados, se preferir acesso nosso <b>Calendário completo</b>.</p>
+</div>
+<div class="row">
+    <div class="col-12 col-lg-8 offset-lg-2">
+        <form asp-action="PesquisarCurso">
+            <div class="input-group mb-3">
+                <input type="text" asp-for="Texto" class="form-control" placeholder="Nome o descrição do curso" aria-label="Pesquisar" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-primary" type="submit">Pesquisar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    @if (Model.CursosComPaginacao.TotalItemCount > 0)
+    {
+        @await Html.PartialAsync("_CardPaginacaoCursoPartial.cshtml", Model.CursosComPaginacao);
+    }
+
+</div>
